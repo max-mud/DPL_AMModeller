@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        Scene_template.cpp
+        Scene_template.cpp \
+    Scene.cpp
 
-HEADERS  += Scene_template.h
+HEADERS  += Scene_template.h \
+    Scene.h
 
 FORMS    += Scene_template.ui
