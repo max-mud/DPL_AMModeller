@@ -3,9 +3,9 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication aa(argc, argv);
     Scene_template w;
     w.show();
 
-    return a.exec();
+    return aa.exec();
 }
