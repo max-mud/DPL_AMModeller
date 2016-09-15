@@ -1,14 +1,12 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2016-09-14T17:17:10
+# Project created by QtCreator 2011-11-15T13:29:30
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui opengl
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-
-TARGET = DPL_AMModeller
+TARGET = opengl1
 TEMPLATE = app
 
 
@@ -20,3 +18,6 @@ HEADERS  += Scene_template.h \
     Scene.h
 
 FORMS    += Scene_template.ui
+
+RESOURCES += \
+    shaders.qrc

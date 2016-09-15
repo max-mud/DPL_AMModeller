@@ -1,60 +1,29 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <QAction>
-#include <QApplication>
-#include <QButtonGroup>
-#include <QHeaderView>
-#include <QMainWindow>
-#include <QMenuBar>
-#include <QStatusBar>
-#include <QToolBar>
-#include <QVariant>
-#include <QWidget>
+#include <QGLWidget>
+#include <QtOpenGL>
+#include <QTimer>
+#include <QOpenGLShader>
+#include <QOpenGLShaderProgram>
+#include <QMatrix4x4>
+#include <QOpenGLFunctions>
 
-class Scene : public QMainWindow
+class Scene : public QGLWidget, public QOpenGLFunctions
 {
     Q_OBJECT
 
 public:
+    Scene(QWidget *parent = 0);
 
-    QMenuBar *menuBar;
-    QToolBar *mainToolBar;
-    //QWidget *centralWidget;
-    QStatusBar *statusBar;
+    QOpenGLShaderProgram *m_program;
 
-    void setupScene()
-    {
-        if (this->objectName().isEmpty())
-            this->setObjectName(QStringLiteral("Scene"));
-        this->resize(400, 300);
-        menuBar = new QMenuBar(this);
-        menuBar->setObjectName(QStringLiteral("menuBar"));
-        this->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(this);
-        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        this->addToolBar(mainToolBar);
-        //centralWidget = new QWidget(this);
-        //centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        //this->setCentralWidget(centralWidget);
-        statusBar = new QStatusBar(this);
-        statusBar->setObjectName(QStringLiteral("statusBar"));
-        this->setStatusBar(statusBar);
-
-        retranslateScene();
-
-        QMetaObject::connectSlotsByName(this);
-    } // setupScene
-
-    void retranslateScene()
-    {
-        this->setWindowTitle(QApplication::translate("Scene", "Scene", 0));
-    } // retranslateScene
-
-    explicit Scene(QWidget *parent = 0);
-    ~Scene();
-
-private:
+    void initializeGL(); // Метод для инициализирования opengl
+    void resizeGL(int nWidth, int nHeight); // Метод вызываемый после каждого изменения размера окна
+    void paintGL(); // Метод для вывода изображения на экран
+    GLint m_posAttr;
+    GLint m_colorAttr;
+    GLint m_matrixUniform;
 
 };
 
