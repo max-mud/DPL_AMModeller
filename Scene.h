@@ -8,6 +8,7 @@
 #include <QOpenGLShaderProgram>
 #include <QMatrix4x4>
 #include <QOpenGLFunctions>
+#include <math.h>
 
 class Scene : public QGLWidget, public QOpenGLFunctions
 {
@@ -23,7 +24,9 @@ public:
     void paintGL(); // Метод для вывода изображения на экран
     GLint m_posAttr;
     GLint m_colorAttr;
-    GLint m_matrixUniform;
+    GLint m_matrixModelUniform;
+    GLint m_matrixProjectionUniform;
+    GLint m_matrixViewUniform;
 
 };
 

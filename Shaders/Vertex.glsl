@@ -1,9 +1,12 @@
 attribute vec4 vertex;
 attribute vec4 color;
-varying vec3 var_color;
-uniform mat4 matrix;
+varying vec4 var_color;
+uniform mat4 matrixModel;
+uniform mat4 matrixProjection;
+uniform mat4 matrixView;
 void main(void)
 {
-    gl_Position = matrix * vertex;
+    mat4 MVP = matrixProjection * matrixView;
+    gl_Position = MVP * vertex;
     var_color = color;
 }
