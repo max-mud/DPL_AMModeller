@@ -152,12 +152,12 @@ void Scene::paintGL()
     QVector3D up(0., 1., 0.);
     matrixView.lookAt(eye, center, up);
     matrixView.rotate(angle_maouse_x, 0., 1., 0.);
-    matrixView.rotate(angle_maouse_y, 1., 0., 0.);
+    matrixView.rotate(angle_maouse_y, cos((angle_maouse_x * M_PI) / 180.), 0., sin((angle_maouse_x * M_PI) / 180.));
 
     //Матрица МОДЕЛИ
     //GLfloat alph = sin((angle_action * M_PI) / 180.) * 100;
     matrixModel.setToIdentity();
-    matrixModel.rotate(angle_action, 1., 0., 0.);
+    //matrixModel.rotate(angle_action, 1., 0., 0.);
     //matrixModel.translate(alph / pow(2., 0.5), alph / pow(2., 0.5), 0.);
 
     //Связывание и отрисовка
@@ -212,7 +212,7 @@ void Scene::paintGL()
 
 void Scene::updateScene()
 {
-    angle_action++;
+    angle_action += 0.2;
     if (angle_action < 360)
         angle_action += 0.2;
     else
@@ -224,20 +224,24 @@ void Scene::mouseMoveEvent(QMouseEvent *ev)
 {
     if (is_mouse_pressed)
     {
-        angle_maouse_x += ev->x() - pos_x;
         angle_maouse_y += ev->y() - pos_y;
+        if (angle_maouse_y >= 360.)
+            angle_maouse_y = angle_maouse_y - 360.;
 
-        if (angle_maouse_x >= 360)
-            angle_maouse_x = angle_maouse_x - 360;
+        if (angle_maouse_y <= -360.)
+            angle_maouse_y = angle_maouse_y + 360.;
 
-        if (angle_maouse_x <= -360)
-            angle_maouse_x = angle_maouse_x + 360;
+//        if ((angle_maouse_y > -90. && angle_maouse_y <= 90.) || angle_maouse_y > 270. || angle_maouse_y <= -270.)
+            angle_maouse_x += ev->x() - pos_x;
+//        else
+//            angle_maouse_x -= ev->x() - pos_x;
 
-        if (angle_maouse_y >= 360)
-            angle_maouse_y = angle_maouse_y - 360;
+        if (angle_maouse_x >= 360.)
+            angle_maouse_x = angle_maouse_x - 360.;
 
-        if (angle_maouse_x <= -360)
-            angle_maouse_y = angle_maouse_y + 360;
+        if (angle_maouse_x <= -360.)
+            angle_maouse_x = angle_maouse_x + 360.;
+
         pos_x = ev->x();
         pos_y = ev->y();
     }
