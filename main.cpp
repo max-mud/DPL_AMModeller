@@ -1,16 +1,18 @@
 #include <QtGui>
-#include "Scene.h"
+#include "MainWindow.h"
+#include "Template_MainWindow.h"
 
 int main(int argc, char** argv)
 {
     QApplication app(argc, argv);
 
-    Scene s;
-    s.setWindowTitle("QT OpenGL - Lesson 1");
-    s.setGeometry(100,100,500,500); // Смещение и положение окна
-    s.show();
-    //s.setMouseTracking(true); // вызывать метод mouseMoveEvent при изменении позиции указателя, даже без клика кнопкой мыши
-    //s.setCursor(QCursor(Qt::BlankCursor));
+    MainWindow MW;
+//    MW.setWindowTitle("QT OpenGL - Lesson 1");
+//    MW.setGeometry(650,350,500,500);
+    MW.show();
+
+    Template_MainWindow t_MW;
+    t_MW.show();
 
     return app.exec();
 }

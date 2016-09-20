@@ -63,13 +63,6 @@ void Scene::paintGL()
     GLfloat h = (a * pow(3., 0.5)) / 2.;
     GLfloat vertices[] =
     {
-        /*
-        m_size * 0.f,  m_size * R, m_size * 0.0f,
-        m_size * 0.f, m_size * (R - H), m_size * r,
-        m_size * a / 2.f, m_size * (R - H), m_size * (r - h),
-        m_size * -a / 2.f, m_size * (R - H), m_size * (r - h),
-        */
-        //--------------------------------
 
         //1
         m_size * 0.f,  m_size * R, m_size * 0.0f,
@@ -113,28 +106,6 @@ void Scene::paintGL()
         1.f,  0.f,  0.f, 1.0f,
         0.f,  1.f,  0.f, 1.0f,
         0.f,  0.f,  1.f, 1.0f
-
-        /*
-        //1
-        1.f,  0.f,  0.f, 1.0f,
-        1.f,  0.f,  0.f, 1.0f,
-        1.f,  0.f,  0.f, 1.0f,
-
-        //2
-        0.f,  1.f,  0.f, 1.0f,
-        0.f,  1.f,  0.f, 1.0f,
-        0.f,  1.f,  0.f, 1.0f,
-
-        //3
-        0.f,  0.f,  1.f, 1.0f,
-        0.f,  0.f,  1.f, 1.0f,
-        0.f,  0.f,  1.f, 1.0f,
-
-        //4
-        0.f,  0.f,  0.f, 1.0f,
-        0.f,  0.f,  0.f, 1.0f,
-        0.f,  0.f,  0.f, 1.0f
-        */
     };
 
     //Матрицы:
@@ -174,37 +145,7 @@ void Scene::paintGL()
     glDrawArrays(GL_TRIANGLES, 3, 3);
     glDrawArrays(GL_TRIANGLES, 6, 3);
     glDrawArrays(GL_TRIANGLES, 9, 3);
-/*
-    matrixModel.setToIdentity();
-    matrixModel.rotate(angle, 1., 0., 0.);
-    matrixModel.translate(0., alph, 0.);
-    m_program->setUniformValue(m_matrixModelUniform, matrixModel);
 
-    //glDrawArrays(GL_TRIANGLES, 0, 3);
-    glDrawArrays(GL_TRIANGLES, 3, 3);
-    //glDrawArrays(GL_TRIANGLES, 6, 3);
-    //glDrawArrays(GL_TRIANGLES, 9, 3);
-
-    matrixModel.setToIdentity();
-    matrixModel.rotate(angle, 0., 0., 1.);
-    matrixModel.translate(0., 0., alph);
-    m_program->setUniformValue(m_matrixModelUniform, matrixModel);
-
-    //glDrawArrays(GL_TRIANGLES, 0, 3);
-    //glDrawArrays(GL_TRIANGLES, 3, 3);
-    glDrawArrays(GL_TRIANGLES, 6, 3);
-    //glDrawArrays(GL_TRIANGLES, 9, 3);
-
-    matrixModel.setToIdentity();
-    matrixModel.rotate(angle, 1., 1., 1.);
-   // matrixModel.translate(alph, 0., alph);
-    m_program->setUniformValue(m_matrixModelUniform, matrixModel);
-
-    //glDrawArrays(GL_TRIANGLES, 0, 3);
-    //glDrawArrays(GL_TRIANGLES, 3, 3);
-    //glDrawArrays(GL_TRIANGLES, 6, 3);
-    glDrawArrays(GL_TRIANGLES, 9, 3);
-*/
     glDisableVertexAttribArray(m_colorAttr);
     glDisableVertexAttribArray(m_posAttr);
 

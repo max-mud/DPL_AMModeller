@@ -11,15 +11,19 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        Scene_template.cpp \
     Scene.cpp \
-    SceneObject.cpp
+    SceneObject.cpp \
+    MainWindow.cpp \
+    Template_MainWindow.cpp
 
-HEADERS  += Scene_template.h \
+HEADERS  += \
     Scene.h \
-    SceneObject.h
+    SceneObject.h \
+    MainWindow.h \
+    Template_MainWindow.h
 
-FORMS    += Scene_template.ui
+FORMS    += \
+    Template_MainWindow.ui
 
 RESOURCES += \
     shaders.qrc
