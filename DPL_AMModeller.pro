@@ -26,4 +26,5 @@ FORMS    += \
     Template_MainWindow.ui
 
 RESOURCES += \
-    shaders.qrc
+    shaders.qrc \
+    icons.qrc

@@ -11,6 +11,7 @@
 #include <QOpenGLFunctions>
 #include <QOpenGLShader>
 #include <QOpenGLShaderProgram>
+#include <QPushButton>
 #include <QtOpenGL>
 #include <QTimer>
 

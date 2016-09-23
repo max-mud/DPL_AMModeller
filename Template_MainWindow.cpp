@@ -12,3 +12,13 @@ Template_MainWindow::~Template_MainWindow()
 {
     delete ui;
 }
+
+void Template_MainWindow::on_pushButton_clicked()
+{
+
+}
+
+void Template_MainWindow::on_push_button_clicked()
+{
+
+}
