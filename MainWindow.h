@@ -38,7 +38,6 @@ protected:
 private:
 
 signals:
-    void startModelTreeAnimation();
 
 public slots:
 

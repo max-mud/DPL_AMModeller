@@ -24,10 +24,12 @@ public:
 
     QOpenGLShaderProgram *m_program;
     GLint m_posAttr;
+    GLint grid_vertex_attr;
     GLint m_colorAttr;
     GLint m_matrixModelUniform;
     GLint m_matrixProjectionUniform;
     GLint m_matrixViewUniform;
+    GLfloat *scene_grid_vertices;
     std::vector<SceneObject> *objects;
 
     void initializeGL();
@@ -47,11 +49,12 @@ private:
     float pos_y;
     float winHei;
     float winWid;
+    float eye_translate;
 
     void mouseMoveEvent(QMouseEvent *);
     void mousePressEvent(QMouseEvent *);
     void mouseReleaseEvent(QMouseEvent *);
-
+    void wheelEvent(QWheelEvent* e);
 };
 
 #endif // SCENE_H
